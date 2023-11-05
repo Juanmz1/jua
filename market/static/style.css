@@ -1,0 +1,158 @@
+body {
+  background-image: url('hero4.png');
+  height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form-register{
+    color:black;
+}
+
+.h3{
+    margin-top: 20px;
+}
+.checkbox{
+    text-align: center;
+}
+
+.money {
+    color: lawngreen;
+    font-weight: bold;
+}
+
+.content .div-text{
+    text-align: center;
+    margin-top: 20vh;
+    text-transform: uppercase;
+    margin-right: 420px;
+    font-weight: bold;
+}
+.div-text2 {
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+.md-1 {
+    text-weight: bold;
+    text-size: 300px;
+}
+
+.btn hoever{
+    color:
+}
+.content .my_img img{
+    width: 350px;
+    height: 350px;
+    margin-top: 40px;
+    border-radius: 100px;
+
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+    padding: 0 5%;
+    margin: 3%;
+    border-radius: 20px;
+}
+
+.content .div-text .btn{
+    padding: 15px 35px;
+    background-color: #fff;
+    color: #79bccf;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+.content .div-text .btn:hover{
+    color: #fff;
+    background-color: #79bccf;
+}
+
+.content .small-img{
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    left: 32%;
+    bottom: 20px;
+    transform: translateX(-50);
+    display: flex;
+    gap: 80px;
+    align-item: center;
+    cursor: pointer;
+}
+
+.content .small-img img:hover{
+    transform: scale(1.2);
+}
+
+.form-register {
+    margin-top: 40px;
+}
+
+.form-box {
+    max-width: 250px;
+    justify-content: center;
+    margin-left: 10px;
+    transform: translateX(-50%,-50%);
+}
+
+.form-box .form-register i{
+    margin-left: 10px;
+    color: gray;
+}
+
+footer {
+    margin-top: 0;
+    background-image: url('banner.png');
+    color: black;
+    background-repeat: no-repeat;
+    padding: 20px;
+    }
+
+#icon {
+    left: 20%
+}
+
+
+body > nav:nth-child(3) > ul > li.page-item.active > a{
+    background-color: black;
+}
+
+body > nav:nth-child(3) > ul > li:nth-child(n):hover >a {
+    background-color: coral;
+    color: #fff;
+}
+
+.pagination a{
+    color: black;
+}
+
+#img_class {
+    display: grip;
+    gap: 80px;
+}
+
+.my_class1 {
+    display: in_block;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: space-equal;
+}
+.container .product img{
+    width: 220px;
+    height: 220px;
+    align-item: center;
+    text-align: center;
+    gap: 80px;
+    justify-content: space-evenly;
+    }
+container3-fluid .p-name-{
+    color: black;
+}

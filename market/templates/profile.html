@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block title %} Shop {% endblock %}
+
+
+{% block content %}
+
+<div class="container my-5 margin-top:30px">
+    <div class="row">
+        <h3 style="color: gray;">Welcome <span class="text-capitalize">{{ user.username }}</span></h3>
+
+        <div class="col-sm-2 border-end" style="margin-top: 20px;">
+            {% if current_user.id == 1 %}
+                <ul class="list-unstyled">
+                    <li class="d-grid"><a href="/admin-page" class="btn btn-primary">Admin Action</a></li>
+                </ul>
+            {% else %}
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="#" class="btn btn-primary">Profile</a></li>
+                <li class="d-grid"><a href="/change-password/{{ user.id }}" class="btn btn-primary" style="margin-top: 5px;">Change Password</a></li>
+            </ul>
+            {% endif %}
+
+        </div>
+
+        <div class="col-sm-5 offset-sm-1" style="background-color: gray; border-radius: 18px; margin-top: 20px;">
+            <div class="row">
+
+                <div class="col-sm-8">
+                    <div class="m-2" style="background-color: gray">
+
+                        <h3>{{ user.username }}</h3>
+                        <p>Email: {{ user.email_addr }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

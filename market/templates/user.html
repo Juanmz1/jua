@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block title %} Users {% endblock %}
+
+
+{% block content %}
+  <table class="table table-gray table-hover">
+    <thead>
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date Added</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email_addr }}</td>
+        <td>{{ user.date_added }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+{% endblock %}

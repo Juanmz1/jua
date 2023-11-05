@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+{% block title %}
+    Shop Item
+{% endblock %}
+
+{% block content %}
+    {% if items | length < 1 %}
+    <h3 style="color: white;">No Shop Item</h3>
+    {% else %}
+    <table class="table table-black table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">In Stock</th>
+                <th scope="col">Product Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody style="background-color: gray; color: black;">
+            {% for item in items %}
+                <tr>
+                    <th scope="row">{{ item.id }}</th>
+                    <td>{{ item.date_added }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}$</td>
+                    <td>{{ item.stock }}</td>
+                    <td><img src="{{ item.item_picture }}" style="height: 50px; width: 50px; border-radius: 4px;"></td>
+
+                    <td>
+                        <a class="btn btn-primary" href="/update-item/{{ item.id }}">Update</a>
+                        <br>
+                        <a class="btn btn-danger" href="/delete-item/{{ item.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

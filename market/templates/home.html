@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+
+      <div class="content">
+          <div class="my_img">
+              <img id="big_img" src="static/f1.jpg" alt="">
+          </div>
+          <div class="div-text">
+              <h3> Outfit of the day</h3>
+              <h3>We Gat You! Cover</h3>
+                <a href="{{ url_for('shop_page') }}" class="btn btn-primary">Shop Now</a>
+          </div>
+
+          <div class="small-img">
+              <img onclick="myTshirt(this.src)" src="static/f1.jpg">
+              <img onclick="myTshirt(this.src)" src="static/f2.jpg">
+              <img onclick="myTshirt(this.src)" src="static/f3.jpg">
+          </div>
+      </div>
+
+    <section id="feature">
+        <div class="fe-box">
+            <img src="static/features/f1.png">
+            <h5>Free Shipping</h5>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+{% endblock %}

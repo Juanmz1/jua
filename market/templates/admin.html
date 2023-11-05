@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block title %} Admin {% endblock %}
+
+
+{% block content %}
+  <table class="table table-gray table-hover">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Shop Item</th>
+        <th scope="col">Add Shop Item</th>
+        <th scope="col">View Orders</th>
+        <th scope="col">Update Orders</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if user %}
+      <tr>
+        <td><a class="btn btn-primary btn-hover" href="/customer">Customers</a></td>
+        <td><a class="btn btn-primary btn-hover" href="/shop-item">Shop Item</a></td>
+        <td><a class="btn btn-primary btn-hover" href="/add-shop-item">Add Shop Item</a></td>
+        <td><a class="btn btn-primary btn-hover" href="/view-orders">View Orders</a></td>
+        <td><a class="btn btn-primary btn-hover" href="/update-order/{{current_user.id}}">Update Orders</a></td>
+      </tr>
+    {% endif %}
+    </tbody>
+
+  </table>
+{% endblock %}

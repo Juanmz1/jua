@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block title %}
+    Shop Page
+{% endblock %}
+
+{% block content %}
+
+    <section id="featured" class="my-5 py-5">
+        <div class="container  mt-5 py-5">
+            <h3>Our Featured Products</h3>
+            <hr>
+        </div>
+        {% for item in items %}
+        <div class="container" id="{{item.id}}">
+            <div class="product">
+                <img class="img-fluid mb-3" src="{{ item.item_picture }}">
+                <div class="star" style="color: lawngreen;">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="container3-fluid" >
+                <h5 class="p-name" style="color: purple">{{ item.name }}</h5>
+                <h5 class="p-name" style="color: green">{{ item.price }}$</h5>
+                <p class="p-name-" style="color: blueviolet">{{ item.stock }} in stock </p>
+                <a class="btn btn-sm btn-primary" href="/add-cart/{{ item.id }}" style="text-align: center;">Add to chart</a>
+                </div>
+        </div>
+        {% endfor %}
+        </div>
+    </section>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">Previous</a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endblock %}
