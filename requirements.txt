@@ -31,3 +31,4 @@ urllib3
 Werkzeug
 xmltodict
 flask-bcrypt
+rustc
