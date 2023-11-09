@@ -4,8 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ghimfdxhlbpxpd:c38911c4c72fdb642f62d73eaccea174046b4f779bdb41e0dc5cc0023f21790c@ec2-35-169-11-108.compute-1.amazonaws.com:5432/depdt592d36ael'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 #DATABASE_URL=postgresql://juanmrender_user:TQbrkxi5KgkPHyIpuXYxHMnGQ58CuOS8@dpg-cl58hmk72pts739ucilg-a.oregon-postgres.render.com/juanmrender
 app.config['SECRET_KEY'] = '618c21286d52ef876d89a6d1'
 db = SQLAlchemy(app)
