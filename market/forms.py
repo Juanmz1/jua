@@ -5,6 +5,7 @@ from market.model import User
 from flask_wtf.file import FileField, FileRequired
 
 class RegisterForm(FlaskForm):
+    """ define a class registration """
     def validate_username(self, username_to_check):
         user = User.query.filter_by(username=username_to_check.data).first()
         if user:
@@ -21,12 +22,14 @@ class RegisterForm(FlaskForm):
     submit = SubmitField(label='Create Account')
 
 class LoginForm(FlaskForm):
+    """ define a class loginform """
     username= StringField(label='User Name:', validators=[Length(min=2, max=30), DataRequired()])
     password1 = PasswordField(label='Password:', validators=[Length(min=6), DataRequired()])
     submit = SubmitField(label='Sign in')
 
 
 class ChangePasswordForm(FlaskForm):
+    """ define a class change password form """
     current_password = PasswordField(label='Old Password:', validators=[Length(min=6), DataRequired()])
     new_password = PasswordField(label='New Password:', validators=[Length(min=6), DataRequired()])
     confirm_password = PasswordField(label='Confirm Password:', validators=[Length(min=6), DataRequired()])
@@ -34,6 +37,7 @@ class ChangePasswordForm(FlaskForm):
 
 
 class ShopItemForm(FlaskForm):
+    """ define a class shop item form"""
     product_name = StringField(label='Product Name:', validators=[Length(min=2, max=50), DataRequired()])
     price = FloatField(label='Price:', validators=[DataRequired()])
     in_stock = IntegerField(label='In Stock', validators=[DataRequired()])
@@ -42,6 +46,7 @@ class ShopItemForm(FlaskForm):
     update_product = SubmitField(label='Update Product')
 
 class OrderForm(FlaskForm):
+    """ define a class order form """
     order_status = SelectField('Order Status', choices=[('Pending', 'Pending'), ('Accepted', 'Accepted'),
                                                         ('Out for delivery', 'Out for delivery'),
                                                         ('Delivered', 'Delivered'), ('Canceled', 'Canceled')])
