@@ -1,3 +1,4 @@
+""" import the necessary function """
 from market import app
 from flask import render_template, url_for, redirect, flash, send_from_directory, request, jsonify
 from market.model import Item, User, Cart, Order
@@ -13,6 +14,7 @@ stripe.api_key = 'sk_test_51O82EHFB9TUhHIlDua9VUsJbFENZn6ujrxQ1dPQZicZPwPu2rXTRP
 
 @app.route('/payment', methods=['POST'])
 def payment():
+    """ defining the stripe payment """
     cart = Cart.query.filter_by(user_link=current_user.id).all()
 
     amount = 0
@@ -53,17 +55,20 @@ def get_image(filename):
 @app.route('/')
 @app.route('/home')
 def home_page():
+    """ home page returning the html template"""
     return render_template('home.html')
 
 @app.route('/shop')
 @login_required
 def shop_page():
+    """ shop page query all item and returning the shop template """
     items = Item.query.all()
     cart = Cart.query.filter_by().all
     return render_template('shop.html', items=items, cart=cart if current_user.is_authenticated else [])
 
 @app.route('/register', methods=['GET', 'POST'])
 def register_page():
+    """ register page authenticating user profile """
     form = RegisterForm()
     if form.validate_on_submit():
         user_create = User(username=form.username.data,
@@ -82,6 +87,7 @@ def register_page():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
+    """ login page validating if user account exist """
     form = LoginForm()
     if form.validate_on_submit():
         user_login = User.query.filter_by(username=form.username.data).first()
@@ -98,6 +104,7 @@ def login_page():
 @app.route('/add-cart/<int:item_id>', methods=['GET', 'POST'])
 @login_required
 def cart_add(item_id):
+    """ adding cart item to the list """
     item_to_add = Item.query.get(item_id)
     if not item_to_add:
         flash("Item not found", "error")
@@ -126,6 +133,7 @@ def logout_page():
 @app.route('/profile/<int:user_id>', endpoint='profile')
 @login_required
 def profile(user_id):
+    """ query all user detail """
     user = User.query.get(user_id)
     return render_template('profile.html', user=user)
 
@@ -155,6 +163,7 @@ def change_password(user_id):
 @app.route('/add-shop-item', methods=['GET', 'POST'])
 @login_required
 def admin_add_page():
+    """ admin page having admin function """
     if current_user.id == 1:
         form = ShopItemForm()
         if form.validate_on_submit():
@@ -194,6 +203,7 @@ def admin_add_page():
 @app.route('/shop-item', methods=['GET','POST'])
 @login_required
 def shop_item():
+    """ query the item in shop """
     if current_user.id == 1:
         items = Item.query.order_by(Item.date_added).all()
         return render_template('shop-item.html', items=items)
@@ -204,6 +214,7 @@ def shop_item():
 @app.route('/update-item/<int:item_id>', methods=['GET', 'POST'])
 @login_required
 def update_item(item_id):
+    """ updating item in shop only for admin function """
     if current_user.id == 1:
         form = ShopItemForm()
 
