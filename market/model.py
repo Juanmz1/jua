@@ -1,3 +1,4 @@
+""" import all necessary function """
 from market import db, login_manager
 from market import bcrypt
 from datetime import datetime
@@ -8,6 +9,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class User(db.Model, UserMixin):
+    """ a class defining the user model """
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=30), nullable=False, unique=True)
     email_addr = db.Column(db.String(length=50), nullable=False, unique=True)
@@ -28,6 +30,7 @@ class User(db.Model, UserMixin):
 
     @password.setter
     def password(self, plain_text_password):
+        """ encrpyting the password """
         self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
 
     def check_password_correction(self, attempted_password):
@@ -40,6 +43,7 @@ class User(db.Model, UserMixin):
 
 
 class Item(db.Model):
+    """ a class defining the item """
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=30), nullable=False, unique=True)
     price = db.Column(db.Integer(), nullable=False)
@@ -56,6 +60,7 @@ class Item(db.Model):
 
 
 class Cart(db.Model):
+    """ a class defining the cart section """
     id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.Integer, nullable=False)
     user_link = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
@@ -65,6 +70,7 @@ class Cart(db.Model):
         return '<Cart %r>' % self.id
 
 class Order(db.Model):
+    """ a class defining the order section """
     id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
